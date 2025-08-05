@@ -1,0 +1,6 @@
+image_name,Name,Designation,Company_Name,Address,Phone,Mobile,Email,Website,Fax
+test_image1.jpeg,Infotech Pvt,Manager,SAT Infotech Pvt. Ltd.,91 9820143410,+91 982014341,,rajendra.p@sat-infotech.com,https://www.sat-infotech.com,
+test_image2.jpeg,Parag Khare,Manager,,400 705 Phone,73870 32006,,parag.khare@tata.com,parag.khare,
+test_image3.jpeg,Bharti Airtel,Manager,Bharti Airtel Ltd,0064 Contact,+91 931136097,,pravin.patole@airtel.com,pravin.patole,
+test_image4.jpeg,Aakib Ansari,Manager,AddoniX Technologies Pvt. Ltd.,91 98551 29784 Email,"98551 29784, +91 704592803, +91 704592803, +91 773805626, +91 773805626, +91 981929986",,aakib.ansari@addonix.com,aakib.ansari,
+test_image5.jpeg,Jacob Abraham,Manager,IT Time Technoplast Ltd,7111 9500 ,"22-7111 9500, 22-7111 9569, 22-2857 5672",,jacob@timetechnoplast.com,timetechnoplast.com,
