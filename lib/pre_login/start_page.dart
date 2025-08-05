@@ -210,7 +210,7 @@ class _StartPageState extends State<StartPage> {
           // Background SVG
           Positioned.fill(
             child: SvgPicture.asset(
-              'assets/background/bg_pattern.svg',
+              'assets/background/svg/start_page_bg.svg',
               fit: BoxFit.cover,
             ),
           ),
@@ -227,23 +227,9 @@ class _StartPageState extends State<StartPage> {
                     SizedBox(height: screenHeight * 0.15), // Top spacing
 
                     // Logo
-                    Image.asset(
-                      'assets/background/t_logo.png',
-                      width: screenWidth * 0.97,
-                      fit: BoxFit.contain,
-                    ),
+                    // Logo removed
+                    SizedBox(height: screenHeight * 0.50),
 
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Container(
-                      height: 1.5,
-                      color: Colors.black.withOpacity(0.5),
-                      ),
-                    ),
-
-
-                    SizedBox(height: screenHeight * 0.02), // Gap below logo
-                    
                     // Buttons
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),

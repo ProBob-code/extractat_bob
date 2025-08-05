@@ -53,7 +53,8 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/background/bg_pattern.svg
+    - assets/background/svg/start_page_bg.svg
+    - assets/background/svg/extraction_home.svg
 
     - assets/background/t_logo.png
     - assets/background/bg_pattern.png

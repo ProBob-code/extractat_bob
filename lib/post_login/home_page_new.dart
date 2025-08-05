@@ -1,4 +1,5 @@
   import 'package:flutter/material.dart';
+  import 'package:flutter_svg/flutter_svg.dart';
 
   class HomePageNew extends StatefulWidget {
     const HomePageNew({super.key});
@@ -53,17 +54,27 @@
     @override
     Widget build(BuildContext context) {
       final screenHeight = MediaQuery.of(context).size.height;
+      final screenWidth = MediaQuery.of(context).size.width;
+
+      // return Scaffold(
+      //   body: Stack(
+      //     fit: StackFit.expand,
+      //     children: [
+      //       Image.asset('assets/background/new_home.png', fit: BoxFit.cover),
 
       return Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset('assets/background/new_home.png', fit: BoxFit.cover),
-
+            SvgPicture.asset(
+              'assets/background/svg/extraction_home.svg',
+              fit: BoxFit.cover,
+            ),
+            
             // App logo
                   Positioned(
-                    top: 25,
-                    left: 0,
+                    top: screenHeight * 0.03,
+                    left: screenWidth * 0.02,
                     child: Hero(
                     tag: 'app_logo',
                     child: GestureDetector(
@@ -82,8 +93,8 @@
 
             // Menu button
             Positioned(
-              top: 172,
-              left: 17,
+              top: screenHeight * 0.195,
+              left: screenWidth * 0.03,
               child: IconButton(
                 icon: const Icon(Icons.menu, size: 40, color: Colors.black),
                 onPressed: _toggleMenu,
@@ -92,8 +103,8 @@
 
             // Profile section on homepageNew
             Positioned(
-              top: 80,
-              right: 24,
+              top: screenHeight * 0.08,
+              right: screenWidth * 0.03,
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/profile');
@@ -124,8 +135,8 @@
 
             // HOME TEXT
               Positioned(
-                top: 245,
-                left: 0,
+                top: screenHeight * 0.272,
+                left: screenWidth * 0,
                 right: 0,
                 child: Center(
                 child: Row(
@@ -155,7 +166,8 @@
 
             // AUDIO Extraction
             Positioned(
-              top: screenHeight * 0.398,  left: 45,
+              top: screenHeight * 0.42,  
+              left: screenWidth * 0.120,
               child: _buildActionButton(
                 icon: Icons.multitrack_audio_sharp,
                 label: 'AUDIO EXTRACTION',
@@ -177,8 +189,8 @@
 
             // TEXT Extraction
             Positioned(
-              top: screenHeight * 0.72,
-              left: 45,
+              top: screenHeight * 0.76,
+              left: screenWidth * 0.120,
               child: _buildActionButton(
                 icon: Icons.text_snippet, // Use a text-related icon
                 label: 'TEXT EXTRACTION',
@@ -434,3 +446,240 @@
       );
     }
   }
+
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+
+// class HomePageNew extends StatefulWidget {
+//   const HomePageNew({super.key});
+
+//   @override
+//   State<HomePageNew> createState() => _HomePageNewState();
+// }
+
+// class _HomePageNewState extends State<HomePageNew> with SingleTickerProviderStateMixin {
+//   bool _isMenuOpen = false;
+//   late AnimationController _controller;
+//   late Animation<Offset> _slideAnimation;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       duration: const Duration(milliseconds: 200),
+//       vsync: this,
+//     );
+
+//     _slideAnimation = Tween<Offset>(
+//       begin: const Offset(-1.0, 0.0),
+//       end: const Offset(0.0, 0.0),
+//     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+//   }
+
+//   void _toggleMenu() {
+//     setState(() {
+//       _isMenuOpen = !_isMenuOpen;
+//       if (_isMenuOpen) {
+//         _controller.forward();
+//       } else {
+//         _controller.reverse();
+//       }
+//     });
+//   }
+
+//   void _closeMenu() {
+//     setState(() {
+//       _isMenuOpen = false;
+//       _controller.reverse();
+//     });
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final screenHeight = MediaQuery.of(context).size.height;
+//     final screenWidth = MediaQuery.of(context).size.width;
+
+//     return Scaffold(
+//       body: Stack(
+//         fit: StackFit.expand,
+//         children: [
+//           SvgPicture.asset(
+//             'assets/background/svg/extraction_home.svg',
+//             fit: BoxFit.cover,
+//           ),
+
+          // Positioned(
+          //   top: screenHeight * 0.03,
+          //   left: screenWidth * 0.04,
+          //   child: Hero(
+          //     tag: 'app_logo',
+          //     child: GestureDetector(
+          //       onTap: () {
+          //         Navigator.pushNamed(context, '/newhome');
+          //       },
+          //       child: Image.asset(
+          //         'assets/background/o_logo.png',
+          //         width: screenWidth * 0.40,
+          //         height: screenWidth * 0.40,
+          //         fit: BoxFit.contain,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+
+//           Positioned(
+//             top: screenHeight * 0.19,
+//             left: screenWidth * 0.045,
+//             child: IconButton(
+//               icon: const Icon(Icons.menu, size: 40, color: Colors.black),
+//               onPressed: _toggleMenu,
+//             ),
+//           ),
+
+//           Positioned(
+//             top: screenHeight * 0.09,
+//             right: screenWidth * 0.06,
+//             child: GestureDetector(
+//               onTap: () {
+//                 Navigator.pushNamed(context, '/profile');
+//                 ScaffoldMessenger.of(context).showSnackBar(
+//                   const SnackBar(content: Text('Navigate to Profile')),
+//                 );
+//               },
+//               child: Row(
+//                 children: [
+//                   const Text(
+//                     'Welcome, John',
+//                     style: TextStyle(
+//                       fontSize: 16,
+//                       fontWeight: FontWeight.bold,
+//                       color: Colors.black,
+//                     ),
+//                   ),
+//                   const SizedBox(width: 10),
+//                   CircleAvatar(
+//                     radius: screenWidth * 0.055,
+//                     backgroundImage: const AssetImage('assets/background/profile_pic.png'),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+
+//           Positioned(
+//             top: screenHeight * 0.29,
+//             left: 0,
+//             right: 0,
+//             child: Center(
+//               child: Row(
+//                 mainAxisSize: MainAxisSize.min,
+//                 children: const [
+//                   Icon(Icons.home, size: 40, color: Color.fromARGB(255, 212, 0, 0)),
+//                   SizedBox(width: 2),
+//                   Text(
+//                     'HOME',
+//                     style: TextStyle(
+//                       fontSize: 25,
+//                       fontWeight: FontWeight.bold,
+//                       color: Colors.black,
+//                       fontFamily: 'Roboto',
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+
+//           Positioned(
+//             top: screenHeight * 0.40,
+//             left: screenWidth * 0.075,
+//             child: _buildActionButton(
+//               icon: Icons.multitrack_audio_sharp,
+//               label: 'AUDIO EXTRACTION',
+//               onPressed: () {
+//                 Navigator.pushNamed(context, '/audio');
+//                 ScaffoldMessenger.of(context).showSnackBar(
+//                   const SnackBar(content: Text('Navigate to Audio Extraction')),
+//                 );
+//               },
+//               textStyle: const TextStyle(
+//                 color: Colors.white,
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.bold,
+//                 fontFamily: 'Roboto',
+//               ),
+//             ),
+//           ),
+
+//           Positioned(
+//             top: screenHeight * 0.70,
+//             left: screenWidth * 0.075,
+//             child: _buildActionButton(
+//               icon: Icons.text_snippet,
+//               label: 'TEXT EXTRACTION',
+//               onPressed: () {
+//                 Navigator.pushNamed(context, '/text');
+//                 ScaffoldMessenger.of(context).showSnackBar(
+//                   const SnackBar(content: Text('Navigate to Text Extraction')),
+//                 );
+//               },
+//               textStyle: const TextStyle(
+//                 color: Colors.white,
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.bold,
+//                 fontFamily: 'Roboto',
+//               ),
+//             ),
+//           ),
+
+//           // Slide-out Menu remains unchanged and can be added here as needed
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget _buildActionButton({
+//     required IconData icon,
+//     required String label,
+//     required VoidCallback onPressed,
+//     TextStyle? textStyle,
+//   }) {
+//     final screenWidth = MediaQuery.of(context).size.width;
+//     return SizedBox(
+//       width: screenWidth * 0.85,
+//       height: 75,
+//       child: ElevatedButton(
+//         onPressed: onPressed,
+//         style: ElevatedButton.styleFrom(
+//           backgroundColor: const Color(0xFF262626),
+//           padding: EdgeInsets.zero,
+//           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+//         ),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Icon(icon, color: Colors.white, size: 36),
+//             const SizedBox(width: 12),
+//             Text(
+//               label,
+//               style: textStyle ??
+//                   const TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 16,
+//                     fontWeight: FontWeight.bold,
+//                     fontFamily: 'Roboto',
+//                   ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
